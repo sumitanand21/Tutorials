@@ -1,0 +1,151 @@
+Angular 9
+https://www.interviewbit.com/angular-interview-questions/
+
+Coding
+
+a) Write a program to store details of employees in a table and do the following. 
+    -> Create an employee component.
+    -> Table should have ID, Name, Project, Technology, Role.
+    -> Sort them in ascending and descending order.
+    -> Display the count of employees working under each project, by passing the value from parent to child.
+    -> Delete the employee object from the record.
+
+b)  Write a program to display different 4 counters in 4 rows.
+   -> Every counter should have a + and - button next to them performing addition and subtraction ops.
+   -> The main counter should be displayed at the top which should display the total count of all the 4 counters.
+   -> Perform the operation of hiding the counter, if the value of the counter becomes 0.  
+
+Total Count: 
+23 + -
+32 + -
+45 + -
+87 + -
+
+
+
+c)  Write a program which implements the traffic signal scenario.
+   -> Build two components with red, green and orange lights with toggle switches for each respectively. Both of these must be placed opposite to each other      in the UI.
+   -> On loading the application, both the signals should be orange.
+   -> When the toggle switch for the first signal is “ENABLED”, the green light should glow and the opposite signal should be red. 
+   -> When the toggle switch for the first signal is “DISABLED”, the red light should glow and the opposite signal should be green. 
+   -> Same should be the case with toggle switches for the second signal.
+
+
+Snippets
+
+Snippet to remove underscore from the value
+
+Snippet for split
+
+Time = “15:30”
+Time = Time.split(‘:’)
+Time[0]
+
+patients = [
+  { id: 1, name: "Rock", age: 54, gender: 'M', bloodGroup: 'B+' },
+  { id: 2, name: "Mary", age: 27, gender: 'F', bloodGroup: 'O+' },
+  { id: 3, name: "John", age: 78, gender: 'M', bloodGroup: 'A+' },
+  { id: 4, name: "Sera", age: 43, gender: 'F', bloodGroup: 'O+' },
+  { id: 5, name: "Mike", age: 65, gender: 'M', bloodGroup: 'A+' },
+  { id: 6, name: "Tyson", age: 54, gender: 'M', bloodGroup: 'O-' }
+]
+
+a) Give me the count of female patients.
+b) Remove the records with duplicates in the bloodGroup attribute.
+c) If the blood group is O+ add another key "notes" and value as "Universal donor".
+
+b) Sort the array based on age.
+
+
+cars = [
+  { "brand":"Ford", "model": "Mustang", "withAbs": true },
+  { "brand":"Ford", "model": "Figo", "withAbs": false },
+  { "brand":"BMW", "model": "X3", "withAbs": true },
+  { "brand":"BMW", "model": "X5", "withAbs": true },
+  { "brand":"Fiat", "model":"Linea", "withAbs": false }
+]
+
+Movies = [‘Avengers’, ‘Inception’, ‘Conjuring’, ‘’Fast and Furious’, ‘Joker’]
+Searched_Movies = [‘Avengers’, ‘Inception’, ‘Conjuring’]
+
+
+“6/25/2020”
+Change it to “2020-6-25”
+
+Oral
+	
+     https://www.interviewbit.com/angular-interview-questions/
+
+1. What is Angular? 
+2. Explain the building blocks of an angular app.
+3. Why were client-side frameworks like Angular introduced?
+4. How does an Angular application work?
+5. Explain the lifecycle hooks in angular.
+6. Advantages of angular over other frameworks?
+7. Explain modules in angular?
+8. What are components in angular?
+9. What are services?
+10. Explain dependency injection in angular.
+11. What is property binding? How do you relate that to parent and child?
+12. Explain class and style binding.
+13. What is string interpolation?
+14. How are events created in angular?
+15. How do we pass a value from a template to a component in angular?
+16. Explain two way binding with an example.
+17. What are input and output properties. Explain.
+18. Explain about the forms module.
+19. Explain the various directives available in angular. (ngIf, ngFor, ngSwitchCase, ngClass, ngStyle).
+20. What are template driven forms? How do they differ from reactive forms?
+21. Explain ngForm and ngModel.
+22. Explain about the http module in angular. 
+23. What are observables and promises? How are they different?
+24. Explain the various http operations with respect to a real world example. 
+25. How do I fetch the data from an api end point upon loading the app?
+26. Explain the router module. 
+27. What is authentication and authorisation? 
+28. How do we prevent a user from navigating into the dashboard without logging in?
+29. What’s a JWT?
+30. Explain about cookies and cache. 
+31. How do you differentiate local storage and session storage?
+32. How do you show/hide certain sections of UI based on the roles of a User?
+33. What is minification? How is it done in angular?
+34. What is AOT compilation? What are the advantages of AOT?
+35. Knowledge on Angular Material, if any? 
+36. Knowledge on unit testing in angular, if any?
+37. pure and impure pipes
+38. behavioural subject and subject difference.
+39. Reactive and template driven forms.
+
+
+
+
+
+Angular Interview Questions (2021) - InterviewBit
+https://www.interviewbit.com
+
+var x = {val: 1};
+var y = {val: 1};
+var z = x;
+const result1 = x == y ? true: false;
+const result2 = x === y ? true: false;
+const result3 = x == z ? true: false;
+const result4 = x === z ? true: false;
+const result5 = undefined == null ? true: false;
+const result6 = undefined === null ? true: false;
+
+result1  > false
+result2 > false
+result3  > true
+result4  > true
+result5  > true
+result6  > false
+
+setTimeout(() => console.log('1'), 0);
+console.log('2')
+fetch(url).then(() => console.log('3'))
+console.log('4')
+
+
+event loop
+stacks
+micro and macro

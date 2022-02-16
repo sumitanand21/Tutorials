@@ -1,0 +1,54 @@
+docker
+docker --version
+
+docker pull nginx - nginx is a image
+
+container - running instance of image
+
+get list of all running container
+docker container ls
+or
+docker ps
+
+run a contaner(mostly it hangs)
+docker run nginx:latest
+
+stop a contaner
+docker stop <container Id> 
+or
+docker stop <container name> 
+
+start a container
+docker start <container Id> 
+or
+docker start <container name> 
+
+run a contaner in detach mode(recommended)
+docker run -d nginx:latest
+
+run a contaner in detach mode with custom port 8080
+docker run -d -p 8080:80 nginx:latest
+
+
+run a contaner in detach mode with two custom port 8080 & 3000
+docker run -d -p 8080:80 -p 3000:80 nginx:latest
+
+open docker help
+docker ps --help
+
+list of contaner that is available but not running
+docker ps -a
+
+delete containers
+docker rm <continer name or container id>
+
+get only unique ids of container
+docker ps -aq
+
+delete all continers
+docker rm $(docker ps -aq)
+
+Note :- can not remove a running container.
+
+if want to use force
+docker rm -f $(docker ps -aq)
