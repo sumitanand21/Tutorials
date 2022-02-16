@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Notepad App</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="list-group">
+        <div class="list-group-item note" 
+        *ngFor="let note of noteList"
+        [class.active]="selected && selected.id && note.id === selected.id"
+        [ngClass]="{'font-big': note.favorite, 'list-bg': selected && selected.id && note.id === selected.id}" [ngStyle]="{'color': note.color}" 
+         (click)="selectNote(note)">
+          {{note.title}}
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6" *ngIf="showForm">
+      <div>
+        <form #noteEdit="ngForm">
+          <div class="form-group">
+            <label>Title:
+              <input class="note-title form-control" [(ngModel)]="selected.title" name="title" required></label>
+            <div class="form-error" *ngIf="noteEdit.invalid">Field is required</div>
+          </div>
+          <div class="form-group">
+            <label>Note:
+              <textarea class="note-body form-control" [(ngModel)]="selected.body" name="body"></textarea></label>
+          </div>
+          <div class="form-group">
+            <label>favorite:
+              <input type="checkbox" class="note-favorite" [(ngModel)]="selected.favorite" name="favorite"></label>
+          </div>
+          <div class="form-group">
+            <label>Color:
+              <input type="color" class="note-color" [(ngModel)]="selected.color" name="color"></label>
+          </div>
+          <div class="form-group">
+            <button [disabled]="noteEdit.invalid" class="btn btn-success note-save" (click)="saveNote(selected)">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!showForm">
+      Please select note or <a href="#" class="note-new" (click)="newNote()">click here to create new one</a>
+    </div>
+  </div>
+
+</div>
