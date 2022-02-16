@@ -1,0 +1,5 @@
+   this.roless = this.pendingemp.map(function(obj){ 
+    return { Role: obj.Role};}).filter((thing, index, self) =>
+          index === self.findIndex((t) => (
+            t.Role === thing.Role)));
+      }

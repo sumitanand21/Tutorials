@@ -1,0 +1,8 @@
+1 == '1'        //True
+1 === '1'       //False
+
+'1' == '1'         //True
+'1' === '1'         //True
+
+=== mathes type of variable as well as value in it
+== only mathes the value of variable

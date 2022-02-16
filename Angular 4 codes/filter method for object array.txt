@@ -1,0 +1,6 @@
+1. filter based on a field
+let selectedpenemp = this.pendingreqemp.filter(it => it.selected == true);
+
+***************************************************************************************************************
+2. filter based on field and get length of the filtered value
+this.targetQ1count = this.fieldnames.filter(it => it.type == "TARGET" && it.quarter == "Q1").length;

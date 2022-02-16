@@ -1,0 +1,40 @@
+1. In Html
+
+<table class="xtable">
+  <thead class="xthead xtr">
+    <tr>
+      <td>Name</td>
+      <td>Age</td>
+      <td>Desc</td>
+    </tr>
+  </thead>
+  <tbody class="xtbody">
+   <tr  class="xtr" *ngFor="let t of disp">
+      <td>t.name</td>
+      <td>t.age</td>
+      <td>t.desc</td>
+    </tr>
+  </tbody>
+</table>
+
+/********************************************************************************************************************/
+
+2. In CSS
+
+.xtbody {
+    display:block;
+    height:500px;
+    overflow:auto;
+}
+.xtr {
+    display:table;
+    width:100%;
+    table-layout:fixed;/* even columns width , fix width of table too*/
+}
+
+.xthead {
+    width: calc( 100% - 1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+.xtable {
+    width:100%;
+}

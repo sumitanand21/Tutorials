@@ -1,0 +1,24 @@
+  logo_change2() {
+    this.logo = false;
+    this.logo2 = true;
+    this.defaultImage = JSON.parse(localStorage.getItem('logo'));
+    var blob = null;
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", './assets/images/wipro_logo.jpg');
+    xhr.responseType = "blob";
+    xhr.onload =  () => {
+      blob = xhr.response;
+      var file = new File([blob], 'logo.jpg', { type: 'image/jpg', lastModified: Date.now() });
+      console.log(file);
+      this.setImage(file);
+    }
+    xhr.send()
+  }
+
+
+
+  setImage(img: File) {
+    this.defaultImage = img;
+    console.log(this.defaultImage);
+  }

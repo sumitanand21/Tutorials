@@ -1,0 +1,7 @@
+1. ng build -aot -prod -dop -buildOptimizer -output-hashing=none -vc -cc -named-chunks
+
+2. ng build -aot -prod -buildOptimizer
+
+3. ng build --prod-build-optimizer
+
+4. node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build -aot -prod -buildOptimizer

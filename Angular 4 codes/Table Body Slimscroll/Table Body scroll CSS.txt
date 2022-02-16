@@ -1,0 +1,19 @@
+CSS
+
+ .xtbody {
+    display:block;
+ height:200px;
+}
+.xtr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+.xthead {
+  width: 100%;
+}
+
+.xtable {
+    width:100%;
+} 

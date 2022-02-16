@@ -1,0 +1,7 @@
+	<td align="center"  class="selectWidth" [ngClass]="{'borderLt':j == 0 || val.quarter != t.fieldval[j-1].quarter}" *ngFor="let val of t.fieldval | sort:'order'; let j=index">
+											<form class="example-form DateDis">
+												<mat-form-field class="example-full-width">
+												<input matInput name="val" [disabled]="val.VALUE == null || t.sharingtype == 'FULL'" [(ngModel)]="val.VALUE" value="{{val.VALUE}}">
+												</mat-form-field>
+											 </form>
+										</td>	

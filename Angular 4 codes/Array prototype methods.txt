@@ -1,0 +1,35 @@
+A. Prototype Methods
+
+this.disp = array in which value will be pushed
+this.temp = array from which value will be pushed
+
+1. push a array to other array at the end - 
+
+Array.prototype.push.(this.disp, this.temp);
+
+or 
+
+this.disp.push.apply(this.disp,this.temp)
+
+/********************************************************************************************************************/
+
+2. push a array to other array at the begining- 
+
+Array.prototype.unshift.apply(this.disp, this.temp);
+
+or 
+
+this.disp.unshift.apply(this.disp,this.temp)
+/********************************************************************************End Of prototype*********************************/
+B. Normal Array Methods
+
+1.Push Array object into other array based on index at the end
+
+this.disp.push(this.temp[index]);
+
+/***************************************************************************************************************************************/
+2.Push Array object into other array based on index at the begining
+  
+this.disp.unshift(this.temp[index]);
+
+/*****************************************************************************************************************************************/

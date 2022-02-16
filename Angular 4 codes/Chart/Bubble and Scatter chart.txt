@@ -1,0 +1,61 @@
+Import ng2-charts
+*****************************************************************************************************
+
+1. In Component : -
+
+public ChartOptions:any = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public ChartLegend:boolean = true;
+  public ChartType:string = 'bubble'; // scatter
+  public ChartData:any[] = [
+    {
+      data:[
+        {x:20,y:30,r:15},
+        {x:40,y:10,r:10}
+      ],
+      label:'Series A',
+      backgroundColor:'#FF6384',
+      hoverBackgroundColor:'#FF6388'},
+    {
+      data:[
+        {x: 12,y:17,r:20},
+        {x: 64,y:17,r:10}
+      ],
+      label:'Series B',
+      backgroundColor:'#40ff00',
+      hoverBackgroundColor:'#FF6388'
+    }
+  ];
+  public addData(){
+    this.ChartData.push(
+      {
+        data:[
+          {x:7,y:7,r:15},
+          {x:12,y:9,r:10}
+        ],
+        label:'Series C',
+        backgroundColor:'#FF1174',
+        hoverBackgroundColor:'#FF6388'
+      }
+    )
+    console.log(this.ChartData)
+  }
+  public chartClicked(e:any):void {console.log(e);}
+  public chartHovered(e:any):void {console.log(e);}
+
+****************************************************************************************************************************************
+2. In HTML :-
+
+<div style="display: block">
+    <canvas baseChart
+            [datasets]="ChartData"
+            [labels]="ChartLabels"
+            [options]="ChartOptions"
+            [legend]="ChartLegend"
+            [chartType]="ChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <button (click)='addData()'>add</button>

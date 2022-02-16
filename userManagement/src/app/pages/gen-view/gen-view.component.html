@@ -1,0 +1,8 @@
+
+<div class="gen-main">
+    <div class="gen-tab" *ngFor="let cityObj of cityDet">
+        Site: {{cityObj.city}}
+    </div>
+</div>
+<button type="button" (click)="toLogOut()">Log Out</button>
+<button type="button" *ngIf="global.selectedUser.userRole === 'admin'" (click)="toUserManagement()">User Management</button>

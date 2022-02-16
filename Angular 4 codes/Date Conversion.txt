@@ -1,0 +1,17 @@
+String format - MM/DD/YYYY
+1.String to date
+ this.finStartDate = new Date(this.financialStartDate);
+*************************************************************************************************
+2.Date to String
+        let fStartDate = this.convertdate(this.finStartDate); // this.finStartDate is in date format..........
+
+  convertdate(str) {
+    let date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [mnth, day, date.getFullYear()].join("/");
+  }
+
+
+********************************************************************************************************
+*Check Transform method for date conversion

@@ -1,0 +1,26 @@
+//In .ts file where has to be used
+import { saveAs } from 'file-saver/FileSaver';
+
+getdownloadedfile(empno,Role){
+	this.sharedSevice.downloadletterrel(empno,Role).subscribe(res=>{
+		if(res){
+		let blob = new Blob([res], { type: 'application/pdf' });
+		saveAs(blob, `${this.FinancialYear}_${empno}_${Role}`);     // creating name for file
+		}
+		});
+}
+
+**************************************************************************************************************
+/**
+     * 
+     * @param empno 
+     * @param Role 
+     */
+    downloadletterrel(empno, Role) {
+        const param = new HttpParams()
+            .set('EmpNo', empno)
+            .set('EmpRole', Role)
+            .set('FinancialYear', this.financialYearGLobal)
+            .set('CompanyId', this.companyId.toString());
+        return this.httpClient.get(this.downloadletterrelease, { params: param, responseType: 'arraybuffer' });
+    }

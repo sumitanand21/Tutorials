@@ -1,0 +1,125 @@
+In AppModule
+import { ArraySortPipe,SearchPipe,Searchtwofields } from './filterpipe.pipe';
+//declarations
+  ArraySortPipe,
+    SearchPipe,
+    Searchtwofields,
+*********************************************************************************
+In filterPipe.ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+1.Sort Pipe(Ascending order)
+@Pipe({
+  name: "sort"
+})
+export class ArraySortPipe  implements PipeTransform {
+  transform(array: any[], field: string): any[] {
+    array.sort((a: any, b: any) => {
+      if (a[field] < b[field]) {
+        return -1;
+      } else if (a[field] > b[field]) {
+        return 1;
+      } 
+      else {
+        return 0;
+      }
+    });
+    return array;
+  }
+}
+//In Html
+*ngFor="let field of fieldnames | sort:'order'"
+***************************************************************************************************************************
+2.Filter based on single field
+@Pipe({
+  name:'filterbasedonfield',
+})
+export class SearchPipe implements PipeTransform {
+  transform(items :any[] ,key: string , term: string): any[] {
+      return items.filter((item) => {
+        if (item.hasOwnProperty(key)) {
+          if (term) {
+            try {
+            let regExp = new RegExp(term, 'gi');
+            return regExp.test(item[key]);
+            }
+            catch(e){
+              return false;
+          }
+          } else {
+            return true;
+          }
+        } else {
+          return false;
+        }
+     
+      });
+    }
+}
+
+//In Html
+*ngFor="let r of pendingreqemp|filterbasedonfield:'BU':selectbusinessut"
+****************************************************************************************************
+3.Filter based on two fields
+
+@Pipe({
+  name: 'searchintwofields'
+})
+export class Searchtwofields implements PipeTransform {
+  public transform(value, keys: string, term: string) {
+
+    if (!term) return value;
+    try{
+    return (value || []).filter((item) => keys.split(',').some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
+    }
+    catch(e){
+      return [];
+    }
+
+  }
+}
+
+//In Html
+*ngFor="let r of pendingreqemp|searchintwofields:'EmployeeNumber,EmployeeName':selectemp"
+********************************************************************************************
+4. Date Format pipe
+//In HTML
+{{t.startdate | date: 'dd MMM yyyy'}}
+******************************************************************************************
+5. All type of search...multiple fields and 1 field
+
+@Pipe({
+  name: 'searchintwofields'
+})
+export class Searchtwofields implements PipeTransform {
+  public transform(value, keys: string, term: string) {
+
+    if (!term){
+    return value;
+    }
+    try{
+
+    return (value || []).filter((item) => keys.split(',').some(key => item.hasOwnProperty(key) && item[key].toString().toLowerCase().includes(term.toString().toLowerCase())));
+    }
+    catch(e){
+      return [];
+     
+    }
+
+  }
+}
+******************************************************************************************
+6. Multiple term search Pipe
+
+public transform(value, keys: string, term: any[]) {
+    if (term.length==0){
+    return value;
+    }
+    try{
+      debugger;
+return (value || []).filter((item) => keys.split(',').some(key => item.hasOwnProperty(key) && term.some((it)=> item[key].toString().toLowerCase().includes(it.toString().toLowerCase()))))
+    }
+    catch(e){
+      return [];
+     
+    }

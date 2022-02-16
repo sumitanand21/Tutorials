@@ -1,0 +1,6 @@
+1.Trim Left/Trim Right/Trim
+        this.CompanyName = this.CompanyName.trimLeft();
+****************************************************************************************************
+1. Only allow values provided
+          this.CompanyName = this.CompanyName.replace(/[^a-zA-Z-\s]+/g, '');
+*******************************************************************************************************

@@ -1,0 +1,49 @@
+1. Setting value to Session
+ async setsessionparameter() {
+        // await window.sessionStorage.setItem("empno","366846");
+        // await window.sessionStorage.setItem("empno", "201854");
+        await window.sessionStorage.setItem("empno", "223344");
+        // await window.sessionStorage.setItem("empno", "157403");
+        await window.sessionStorage.setItem("empname", "Raveesha K");
+        await window.sessionStorage.setItem("emprole", "R2");
+        // await window.sessionStorage.setItem("emprole", "Test");
+        await window.sessionStorage.setItem("financialyear", "FY1819");
+        await window.sessionStorage.setItem("company", "1");
+        await window.sessionStorage.setItem("empmailid", "raveesha.k41@wipro.com");
+        return 'xam';
+    }
+
+*****************************************************************************************************************
+2. getting values from session
+
+    async getsessionitem() {
+         let data = await this.setsessionparameter(); // to be commented for live build
+        this.financialYearGLobal = await sessionStorage.getItem("financialyear");
+        this.companyId = await parseInt(sessionStorage.getItem("company"));
+        this.bfmempno = await parseInt(sessionStorage.getItem("empno"));
+        this.Role = await sessionStorage.getItem("emprole");
+        this.email = await sessionStorage.getItem("empmailid");
+        this.empname = await sessionStorage.getItem("empname");
+
+        if (this.bfmempno) {
+            return this.bfmempno;
+        }
+        else {
+            window.location.href = this.logoutUrl;
+        }
+
+    }
+*****************************************************************************************************************
+3. call a method after await
+
+async getroledat() {
+    let name = await this.sharedService.getsessionitem();
+    this.sharedService.getRolebasedModule().subscribe(response => {
+      this.RoleArray = response;
+      // this.sharedService.loaderflag = false;
+      this.router.navigate(['/landingpage']);
+    },
+      err => {
+        this.sharedService.displayerror(err.status);
+      });
+  }

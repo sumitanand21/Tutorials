@@ -1,0 +1,34 @@
+<div>
+    <input type="text" name="search" placeholder="Search" [(ngModel)]="searchVal"/>
+</div>
+<div *ngFor="let userObj of userDetails |searchFilter: {'userName': searchVal}" class="userdet">  
+  <div>
+    <label>user Name</label>
+    <input name='{{frontEndID}}username' class='' type='text' [(ngModel)]="userObj.userName" [disabled]="!editable">
+  </div>
+  <div>
+    <label>Password</label>
+    <input name='{{frontEndID}}userpass' class='' type='text' [(ngModel)]="userObj.userPassword" [disabled]="!editable">
+  </div>
+  <div>
+    <label>Role</label>
+    <select [(ngModel)]="userObj.userRole" name="{{frontEndID}}role" [disabled]="!editable">
+        <option value="">Select</option>
+        <option value="admin">Admin</option>
+        <option value="general">General</option>
+    </select>
+  </div>
+  <div>
+    <label>City</label>
+    <input name='{{frontEndID}}city' class='' type='text' [(ngModel)]="userObj.city" [disabled]="!editable">
+  </div>
+  <button type="button" (click)="onEdit(userObj)">Edit</button>
+  <!-- <button type="button" (click)="onRemove(userObj)">Remove</button> -->
+  <button type="button" (click)="onSave(userObj)">Save</button>
+</div>
+
+<div>
+    <button type="button" (click)="addUser()">Add New User</button>
+    <button type="button" (click)="togenView()">General View</button>
+    <button type="button" (click)="toLogOut()">Log Out</button>
+</div>

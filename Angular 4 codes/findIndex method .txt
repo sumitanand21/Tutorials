@@ -1,0 +1,3 @@
+let index = this.companyListDisp.findIndex((item,i)=>{
+      return item.CompanyName == companyname && item.CompanyGroup == companygroup;
+          });

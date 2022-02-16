@@ -1,0 +1,73 @@
+1. open dialog and return value
+import { MatDialog } from '@angular/material';
+
+ constructor(private httpClient: HttpClient, public dialog: MatDialog) { }
+
+
+
+openDialogconfirm(msg) {
+        let dialogRef = this.dialog.open(ConfirmModalDialog, {
+            width: '450px',
+            data: { errorMessage: msg }
+        });
+        return dialogRef.afterClosed().map(result => {
+            return result;
+        });
+    }
+
+**********************************************************************************************************
+Confirm Model.ts
+import {Component, Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
+@Component({
+    selector: 'confirm-modal',
+    templateUrl: 'confirm-modal.html',
+  })
+  export class ConfirmModalDialog {
+  
+    constructor(
+      public dialogRef: MatDialogRef<ConfirmModalDialog>,
+      @Inject(MAT_DIALOG_DATA) public data: any) {
+       }
+  
+      returnvalue(){
+        this.dialogRef.close('save');
+      }
+
+    // onNoClick(): void {
+    //   this.dialogRef.close();
+    // }
+  
+  }
+
+***********************************************************************************************************
+Confirm Model.html
+<div class="col-xs-12 no_pad">
+		<mat-dialog-actions>
+			<div class="col-xs-12 no_pad">
+				<div class="col-xs-12 no_pad closeDiv padd20">
+					<h4 class="pull-left modalHeader">Confirm</h4>
+					<button class="pull-right icon-close closeIcon" mat-dialog-close></button>			
+				</div>
+				<div class="col-xs-12 no_pad padd20">
+				<div class="col-xs-12 no_pad">
+					<p class="fnt14">{{ data.errorMessage }}</p>	
+				</div>
+				<div class="col-xs-12 no_pad mt10">
+					<button class="pull-right line-btn acceptBtn" aria-label="save"  (click)="returnvalue()">OK</button>
+				</div>
+				</div>
+			</div>
+		</mat-dialog-actions>
+		</div>
+
+************************************************************************************************************************************************************************************
+in Appmodule.ts
+import { ConfirmModalDialog } from './confirm-modal/confirm-modal';
+
+//in declaration
+  ConfirmModalDialog
+
+//in entryComponents
+ConfirmModalDialog

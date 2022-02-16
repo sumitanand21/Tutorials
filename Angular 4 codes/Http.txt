@@ -1,0 +1,35 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+    constructor(private httpClient: HttpClient, public dialog: MatDialog) { }
+
+1.For get request
+    //get plan components in view plan
+    /**
+     * 
+     * @param financialyear 
+     * @param planid 
+     */
+    getplancomponent(financialyear, planid) {
+        const param = new HttpParams()
+        .set('FinancialYear', financialyear)
+        .set('CompanyId', this.companyId.toString())
+        .set('PlanId', planid);
+        return this.httpClient.get<any>(this.getplancomp,{params: param});
+    }
+
+*****************************************************************************************************
+2.Sending data as post
+  deletePlan(delplan: any) {
+        const body = JSON.stringify(delplan);
+        return this.httpClient.post<any>(this.deleteplanurl, body);
+    }
+
+******************************************************************************************************
+3. sending file and data as post
+
+    uploadeditPlan(fileUpload: File, UpdatePolicy: any) {
+        const _formData = new FormData();
+        _formData.append('fileUpload', fileUpload);
+        _formData.append('UpdatePolicy', JSON.stringify(UpdatePolicy));
+        return this.httpClient.post<any>(this.uploadplanedit, _formData);
+    }

@@ -1,0 +1,7 @@
+1.in Html
+<tr class="alignCenter" *ngIf="tabledataR2.length>0">
+***********************************************************************************
+2.in .ts
+errorcheckR2(account,roletype, startdate, enddate, Verticalline, sharingtype, sharingcategory, deliveryunit, geography) {
+    return this.ErrorarrayR2.some(it => it.Account == account && it.roletype == roletype && it.StartDate == startdate && it.EndDate == enddate && it.Vertical == Verticalline && it.SharingType == sharingtype && it.SharingCat == sharingcategory && it.DU == deliveryunit && it.GeoID == geography);
+  }

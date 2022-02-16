@@ -1,0 +1,12 @@
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
+public fetchModel(uuid: string = undefined): Observable<string> {
+  if(!uuid) {
+    return Observable.of(new TestModel()).map(o => JSON.stringify(o));
+  }
+  else {
+    return this.http.get("http://localhost:8080/myapp/api/model/" + uuid)
+            .map(res => res.text());
+  }
+}

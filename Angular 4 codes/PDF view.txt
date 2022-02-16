@@ -1,0 +1,44 @@
+In App module.ts
+
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+//in imports
+    PdfViewerModule
+*******************************************************************************************************************************************************
+1. In Html
+  <div class="col-xs-12 no_pad carouselDiv" *ngIf="plugin">
+    <button class="pull-right icon-close_circle close_icon btndef_none" aria-label="close preview" (click)="preview_change()"></button>
+    <button class="pull-right icon-file_download download-file_icon btndef_none previewIc mr10"></button>
+
+    <div *ngIf="isLoaded" style="text-align: center;">
+        <button  (click)="prevPage()" [disabled]="page === 1">Prev</button>
+        <span>{{ page }} / {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+      </div>
+      
+      <pdf-viewer [src]="previewPdf"
+                  [show-all]="false"
+                  [page]="page"
+                  (after-load-complete)="afterLoadComplete($event)"
+      ></pdf-viewer>
+    
+  </div>
+*******************************************************************************************************************************************
+2.In .ts
+
+  page: number = 1;
+  totalPages: number;
+  isLoaded: boolean = false;
+
+  afterLoadComplete(pdfData: any) {
+    this.totalPages = pdfData.numPages;
+    this.isLoaded = true;
+  }
+
+  nextPage() {
+    this.page++;
+  }
+
+  prevPage() {
+    this.page--;
+  }

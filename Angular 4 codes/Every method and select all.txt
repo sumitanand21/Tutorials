@@ -1,0 +1,33 @@
+selectAll() {
+
+for (var i = 0; i < this.teamsArray.length; i++) {
+  this.teamsArray[i].selected = this.selectedAll;
+}
+if (this.selectedAll == true) {
+  console.log(this.teamsArray.length);
+  this.checkboxcounter = this.teamsArray.length;
+
+}
+if (this.selectedAll == false) {
+  this.checkboxcounter = 0;
+}
+}
+
+**********************************************************************************************************************
+  checkIfAllSelected(empno) {
+		let index = this.teamsArray.findIndex((item,i)=>{
+      return item.EMPNO == empno;
+          });
+    if (this.teamsArray[index].selected == true) {
+      this.checkboxcounter++;      
+
+    }
+    if (this.teamsArray[index].selected == false) {
+      this.checkboxcounter--;
+    }
+   
+
+    this.selectedAll = this.teamsArray.every(function(item: any) {
+      return item.selected == true;
+    })
+  }

@@ -1,0 +1,18 @@
+<table id="content" #content class="col-xs-12">
+  <thead style='display:block;'>
+  <tr class="col-xs-12">
+    <td class="col-xs-6">Name</td>
+        <td class="col-xs-4">Age</td>
+            <td class="col-xs-2">Contact</td>
+  </tr>
+  </thead>
+  <tbody class="col-xs-12" style='height:500px;display:block;overflow:scroll;color:red;'>
+    <tr *ngFor="let t of disp">
+    <td class="col-xs-6">{{t.name}}</td>
+        <td class="col-xs-4">{{t.age}}</td>
+            <td class="col-xs-2">{{t.contact}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<button class="col-xs-12" (click)="getpdf()">Download Pdf</button>

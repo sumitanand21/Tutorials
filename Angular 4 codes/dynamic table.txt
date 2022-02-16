@@ -1,0 +1,52 @@
+<table>
+    <thead>
+      <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let char of characters">
+    <td *ngFor="let col of columns">
+      {{char[col]}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+characters = [
+  {
+    age: 'Unknown',
+    name: 'Earl of Lemongrab',
+    species: 'Lemon Candy',
+    occupation: 'Earl, Heir to the Candy Kingdom Throne'
+  },
+  {
+    name: 'Bonnibel Bubblegum',
+    age: '19',
+    species: 'Gum Person',
+    occupation: 'Returned Ruler of the Candy Kingdom'
+  },
+  {
+    name: 'Phoebe',
+    age: '16',
+    occupation: 'Ruler of the Fire Kingdom',
+    species: 'Flame Person'
+  },
+  {
+    name: 'Lumpy Space Princess',
+    age: '18',
+    species: 'Lumpy Space Person', 
+    occupation: 'Babysitter'
+  }
+];
+
+columns = ["name", "age", "species", "occupation"];
+
+
+https://stackblitz.com/edit/angular-4sb5pc?file=app%2Fapp.component.ts
+
+https://stackblitz.com/edit/material2-beta11-vmwjpe?file=app%2Fapp.component.ts

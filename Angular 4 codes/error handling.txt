@@ -1,0 +1,36 @@
+1.method that gives error
+  this.sharedService.deletePlan(this.deletearray).subscribe(response => {
+let value = response
+    },
+    err => {
+        this.sharedService.displayerror(err.status);
+    });
+**********************************************************************************************
+2. Method to Open Model to display error
+    displayerror(statuscode) {
+        if (statuscode == 401) {
+            this.openservererrDialog("Unauthorized login");
+        }
+        else if (statuscode == 404) {
+            this.openservererrDialog("Resource not found");
+        }
+        else if (statuscode == 500) {
+            this.openservererrDialog("Server error occured");
+        }
+        else {
+            this.openservererrDialog("Error loading page");
+        }
+
+    }
+***************************************************************************************************************************
+3.method to open modal and do operation after closing of modal
+  openservererrDialog(msg: string): void {
+        let dialogRef = this.dialog.open(ErrorModalDialog, {
+            width: '450px',
+            data: { errorMessage: msg }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            this.loaderflag = false;
+        });
+    }

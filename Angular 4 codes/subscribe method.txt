@@ -1,0 +1,14 @@
+deletePlan(delplan: any) {
+        const body = JSON.stringify(delplan);
+        return this.httpClient.post<any>(this.deleteplanurl, body);
+    }
+*********************************************************************************************************
+
+// Calling subscribe method
+
+  this.sharedService.deletePlan(this.deletearray).subscribe(response => {
+let value = response
+    },
+    err => {
+        this.sharedService.displayerror(err.status);
+    });

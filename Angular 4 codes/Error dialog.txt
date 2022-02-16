@@ -1,0 +1,46 @@
+1.opening the dialog  
+    constructor(private httpClient: HttpClient, public dialog: MatDialog) { }
+
+  openDialog(msg: string): void {
+        let dialogRef = this.dialog.open(ErrorModalDialog, {
+            width: '450px',
+            data: { errorMessage: msg }
+        });
+    }
+
+***************************************************************************************************************************
+2.Error Model .ts
+import {Component, Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
+@Component({
+    selector: 'error-modal',
+    templateUrl: 'error-modal.html',
+  })
+  export class ErrorModalDialog {
+  
+    constructor(
+      public dialogRef: MatDialogRef<ErrorModalDialog>,
+      @Inject(MAT_DIALOG_DATA) public data: any) { }
+  
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+  
+  }
+*********************************************************************************************************
+3.Error Model html
+<div class="col-xs-12 no_pad">
+	<mat-dialog-actions>
+		<div class="col-xs-12 no_pad">
+			<div class="col-xs-12 no_pad closeDiv padd20">
+				<h4 class="pull-left modalHeader errorRed">Alert</h4>
+				<button class="pull-right icon-close closeIcon" mat-dialog-close></button>			
+			</div>
+			
+			<div class="col-xs-12 no_pad padd20">
+				<p class="col-xs-12 no_pad colorRed">{{ data.errorMessage }}</p>
+			</div>
+		</div>
+	</mat-dialog-actions>
+	</div>

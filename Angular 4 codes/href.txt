@@ -1,0 +1,5 @@
+Types of href-
+
+1. a({href: 'thing', download: true}, 'clickme'); // => <a href="thing" download>clickme</a>
+2. a({href: 'thing', download: 'File.pdf'}, 'clickme'); // => <a href="thing" download="File.pdf">clickme</a>
+3. <a href="{{sharedService.downloadhelpline+'?RoleType='+sharedService.Role+'&&FinancialYear='+sharedService.financialYearGLobal+'&&companyId='+sharedService.companyId}}" download></a>

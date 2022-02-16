@@ -1,0 +1,34 @@
+1.In Html
+  <div class="col-xs-8 upld_div no_pad mt20">
+            <input type="text" name="fileupload" class="col-xs-12 no_pad upld_ip" placeholder="Upload" value="{{fileNameDisp}}">
+            <button class="icon-file_upload"></button>
+            <input class="ip_op0 file_ip" type="file"  (change)=fileEvent($event)/>
+            <br/>
+          </div>
+
+***************************************************************************************************************************************************
+2.In .ts
+//To get File
+
+ fileEvent(event) {
+    this.fileSelected = event.target.files[0];
+    this.fileNameDisp = this.fileSelected.name;
+    event.srcElement.value = '';
+  }
+
+************************************************************************************************************************************************
+//File Validation
+var i = this.fileSelected.name.indexOf('.PDF');
+    var j = this.fileSelected.name.indexOf('.pdf');
+    if (i < 0 && j < 0) {
+      event.srcElement.value = '';
+      this.fileNameDisp = '';
+      this.sharedService.openDialog("Please select valid pdf file");
+    }
+
+*****************************************************************************************************************************************************
+//Empty File
+            this.fileSelected = null;
+            
+            this.fileNameDisp = "";
+            event.srcElement.value = '';

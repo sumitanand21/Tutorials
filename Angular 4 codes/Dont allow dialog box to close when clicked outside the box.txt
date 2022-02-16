@@ -1,0 +1,5 @@
+
+  constructor(public dialogRef: MatDialogRef<CompanyCreateModalComponent>, private fb: FormBuilder, private sharedService: SharedService,public dialog: MatDialog, private httpClient: HttpClient) {
+   
+ dialogRef.disableClose = true;
+   }

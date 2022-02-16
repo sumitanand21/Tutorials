@@ -1,0 +1,30 @@
+<div>
+    <div>
+        <label>User Name</label>
+    <input name='username' class='' type='text' [(ngModel)]="userName" required>
+    <span *ngIf="!userName.trim() && submitted" style="color:red">User Name is mandatory</span>
+</div>
+<div>
+    <label>Password</label>
+    <input name='passwrd' class='' type='password' [(ngModel)]="userPassword"   required>
+                      <span *ngIf="!userPassword && submitted" style="color:red">Password is mandatory</span>
+</div>
+
+<div *ngIf="signUp">
+    <label>User Role</label>
+    <select [(ngModel)]="userRole" name="role">
+        <option value="">Select</option>
+        <option value="admin">Admin</option>
+        <option value="general">General</option>
+    </select>
+    <span *ngIf="!userRole && submitted" style="color:red">User Role is mandatory</span>
+</div>
+
+<div>
+    <button *ngIf="!signUp" type="button" (click)="onSignUp()">Sign Up</button>
+    <button *ngIf="signUp" type="button" (click)="onRegister()"> Register</button>
+    <button *ngIf="!signUp" type="button" (click)="onLogin()">Log In</button>
+    <button *ngIf="signUp" type="button" (click)="onBack()">Back</button>
+</div>
+
+</div>

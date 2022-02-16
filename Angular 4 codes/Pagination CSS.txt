@@ -1,0 +1,34 @@
+.ngx-pagination .current {
+    background: none!important;
+    border-bottom: 2px solid #4bb050;
+    color : black!important;
+  }
+
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
+     content: ''!important;
+    display: inline-block;
+    margin-left: 1rem;
+  }
+  .ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before{
+    content: ''!important;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+    background: #4bb050!important;
+    border-radius: 100%;
+    color: white;
+    text-decoration-line: none;
+}
+.ngx-pagination a:focus, .ngx-pagination button:focus {
+    cursor: pointer;
+    text-decoration-line: none;
+    outline: none;
+}
+.ngx-pagination .pagination-next a,.ngx-pagination .pagination-previous a{
+  font-size:14px;
+}
+.ngx-pagination .pagination-next a:hover,.ngx-pagination .pagination-previous a:hover{
+    background:none!important;
+    color:rgba(0, 0, 0, 0.78)!important;
+} 

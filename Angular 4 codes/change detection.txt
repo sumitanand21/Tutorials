@@ -1,0 +1,12 @@
+import { ChangeDetectorRef } from '@angular/core';
+
+constructor(public sharedService: SharedService, private router: Router, private cdRef: ChangeDetectorRef) {
+ } 
+
+
+
+ ngAfterViewChecked() {
+    
+this.cdRef.detectChanges();
+  
+}

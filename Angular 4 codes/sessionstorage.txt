@@ -1,0 +1,48 @@
+ this.sharedService.getsessionitem().subscribe(res =>{
+    
+let obj =  JSON.parse((JSON.stringify(res)));
+    
+if(obj){
+      
+this.sharedService.financialYearGLobal = obj.financialyear;
+          
+this.sharedService.companyId =  parseInt(obj.company);
+          
+this.sharedService.bfmempno =  parseInt(obj.empno);
+          
+this.sharedService.Role =  obj.emprole;
+          
+this.sharedService.email =  obj.empmailid;
+          
+this.sharedService.empname =  obj.empname;
+          
+this.getroledat();
+    
+}
+else{
+      
+window.location.href = this.sharedService.logoutUrl;
+    
+}
+   
+});
+
+*****************************************************************************************************************
+   getsessionitem(): Observable<any> {
+        return Observable.of(sessionStorage);
+
+    //   this.financialYearGLobal = await sessionStorage.getItem("financialyear");
+    //   this.companyId = await parseInt(sessionStorage.getItem("company"));
+    //   this.bfmempno = await parseInt(sessionStorage.getItem("empno"));
+    //   this.Role = await sessionStorage.getItem("emprole");
+    //   this.email = await sessionStorage.getItem("empmailid");
+    //   this.empname = await sessionStorage.getItem("empname");
+
+    //   if (this.bfmempno) {
+    //       return this.bfmempno;
+    //   }
+    //   else {
+    //       window.location.href = this.logoutUrl;
+    //   }
+
+  }
